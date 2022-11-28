@@ -1,0 +1,44 @@
+ul li img{
+    max-width: 36px;
+}
+p{
+    margin: 0;
+}
+ul{
+    margin: 0;
+}
+
+.contenedor{
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.barraSuperior{
+    top:0;
+    padding: .5rem 0;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    background-color: #252525;
+}
+
+.inputTextBarra{
+    background-color: #303030;
+    width: 35rem;
+    border-color: #383838;
+    border-radius: 5px;
+    border: 0;
+    padding: 3px 3px;
+    outline: none;
+    color: rgb(170, 170, 170);
+    transition: all .1s ease;
+}
+
+.inputTextBarra:focus{
+    border: 0;
+    border-bottom: 2px solid rgb(100, 100, 100);
+}
+
+li i{
+    cursor: pointer;
+}

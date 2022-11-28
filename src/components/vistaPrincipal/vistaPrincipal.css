@@ -1,0 +1,6 @@
+.vistaPrincipal{
+    height: 100%;
+    width: calc(100% - 6.5rem);
+    margin-left: 5rem;
+    margin-top: 3.2rem;
+}
