@@ -20,6 +20,7 @@ ul{
     width: 100%;
     max-width: 100%;
     background-color: #252525;
+    z-index: 10;
 }
 
 .inputTextBarra{
@@ -41,4 +42,19 @@ ul{
 
 li i{
     cursor: pointer;
+}
+
+.colorGris{
+    color: rgb(90, 90, 90);
+    text-decoration: none;
+}
+
+.logo{
+    cursor: pointer;
+    transition: all ease .1s;
+}
+
+.logo:hover{
+    color: rgb(90, 90, 90);
+    scale: 102%;
 }

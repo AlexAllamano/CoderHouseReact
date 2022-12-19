@@ -1,0 +1,24 @@
+.tarjetaItem {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.288);
+  margin: 0.3rem 0.1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all ease 0.2s;
+}
+
+.tarjetaItem:hover {
+  scale: 105%;
+  background-color: rgba(0, 0, 0, 0.566);
+}
+
+.tarjetaItem img {
+  border-radius: 5px;
+}
+
+.tituloTarjeta {
+    max-width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
