@@ -13,14 +13,14 @@ export const API_Verbos = {
   PUT: "PUT"
 };
 
-export  function consultaApi(endPoint, verbo, objeto = {}) {
+export async function consultaApi(endPoint, verbo, objeto = {}) {
 
   try {
     if (verbo == API_Verbos.DELETE) {
-      const response =  axios.delete(`${baseUrl}${endPoint}/${objeto.id}`);
+      const response = await axios.delete(`${baseUrl}${endPoint}/${objeto.id}`);
       return response;
     } else {
-      const response =  axios({
+      const response = await axios({
         url: `${baseUrl}${endPoint}`,
         method: verbo,
         data: objeto,

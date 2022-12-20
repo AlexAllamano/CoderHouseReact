@@ -14,9 +14,11 @@ const Home = ({listaApps}) => {
 
   return (
     <>
+
+
     <div
         id="carouselExampleIndicators"
-        className="carousel slide"
+        className="carousel slide mb-5"
         data-ride="carousel"
       >
         <div className="carousel-inner">

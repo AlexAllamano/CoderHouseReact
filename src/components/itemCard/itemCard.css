@@ -5,7 +5,11 @@
   padding: 1rem;
   border-radius: 10px;
   transition: all ease 0.2s;
+  color: rgb(116, 116, 116);
+  
 }
+
+
 
 .tarjetaItem:hover {
   scale: 105%;

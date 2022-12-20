@@ -9,11 +9,12 @@ import {
 
 const ItemList = ({ listaApps, titulo }) => {
   return (
-    <div className="colorClaro">
+    <div className="colorClaro mb-4">
       
 
-      <div className="container pt-5">
-        <h4>{titulo}</h4>
+      <div className="container ">
+        <h2>{titulo}</h2>
+        <hr />
         <div className="row mt-5">
           {listaApps.map((app) => (
             <div className="col-md-4 col-sm-12">

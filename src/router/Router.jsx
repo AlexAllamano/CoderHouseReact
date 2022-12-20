@@ -5,6 +5,7 @@ import Juegos from "../pages/juegos/juegos";
 import Apps from "../pages/apps/apps";
 import { useEffect, useState, React } from "react";
 import { API_Endpoints, API_Verbos, consultaApi } from "../services/ApiService";
+import ItemDetalles from "../components/itemDetalles/itemDetalles";
 
 export const Router = () => {
 
@@ -13,8 +14,6 @@ export const Router = () => {
   useEffect(() => {
     consultaApi(API_Endpoints.APPS, API_Verbos.GET).then((arr) => {
       setListaApps(arr.data);
-      console.log(arr.data[0].tipo)
-      console.log(listaApps.filter((item) => item.tipo === "juego"), 'lista de juegos')
     });
   }, []);
 
@@ -24,9 +23,13 @@ export const Router = () => {
     <div className="vistaPrincipal pb-5">
       <Routes>
         <Route path="/" element={<Navigate to={"/home"} />} />
+        {/* <Route path="*" element={<Navigate to={"/home"} />} /> */}
         <Route path="/home" element={<Home listaApps={listaApps.filter(item => item.principal === true)} />} />
-        <Route path="/juegos" element={<Juegos listaApps={listaApps.filter(item => item.tipo === "juego")} />} />
+        <Route path="/home/:id" element={<Navigate to={"/apps"}/>} />
+        <Route path="/juegos" element={<Juegos listaApps={listaApps.filter(item => item.tipo === "juego")}  />} />
+        <Route path="/juegos/:id" element={<ItemDetalles listaApps={listaApps} />} />
         <Route path="/apps" element={<Apps listaApps={listaApps.filter(item => item.tipo === "app")} />}  />
+        <Route path="/apps/:id" element={<ItemDetalles listaApps={listaApps}/>}  />
       </Routes>
     </div>
   );
