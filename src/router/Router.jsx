@@ -27,9 +27,9 @@ export const Router = () => {
         <Route path="/home" element={<Home listaApps={listaApps.filter(item => item.principal === true)} />} />
         <Route path="/home/:id" element={<Navigate to={"/apps"}/>} />
         <Route path="/juegos" element={<Juegos listaApps={listaApps.filter(item => item.tipo === "juego")}  />} />
-        <Route path="/juegos/:id" element={<ItemDetalles listaApps={listaApps} />} />
+        <Route path="/juego/:id" element={<ItemDetalles listaApps={listaApps} />} />
         <Route path="/apps" element={<Apps listaApps={listaApps.filter(item => item.tipo === "app")} />}  />
-        <Route path="/apps/:id" element={<ItemDetalles listaApps={listaApps}/>}  />
+        <Route path="/app/:id" element={<ItemDetalles listaApps={listaApps}/>}  />
       </Routes>
     </div>
   );

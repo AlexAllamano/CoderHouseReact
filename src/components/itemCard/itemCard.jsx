@@ -6,7 +6,7 @@ const ItemCard = ({ app }) => {
   const { nombre, descripcion, imagen, precio, categoria, valoracion, id, tipo } = app;
 
   return (
-    <NavLink to={`${id}`} style={{textDecoration: 'none'}}>
+    <NavLink to={`/${tipo}/${id}`} style={{textDecoration: 'none'}}>
       <div className="d-flex tarjetaItem">
       <img src={imagen} height="110" alt="img app" className=""/>
       <div className="w-75 ms-3 ">
