@@ -16,7 +16,7 @@
   background-color: rgba(0, 0, 0, 0.566);
 }
 
-.tarjetaItem img {
+.tarjetaItem img, .imagenBorde {
   border-radius: 5px;
 }
 

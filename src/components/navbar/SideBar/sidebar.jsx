@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import estilos from "./sidebar.css";
 import SidebarItem from "./SideBarItem/sidebaritem";
+import { ListaContext } from "../../../context/ListaContext";
 
 const Sidebar = () => {
+
+  const { listaCarrito } = useContext(ListaContext);
+
+  
+
+  
   return (
     <div className="sidebar">
       <ul>
@@ -12,7 +19,7 @@ const Sidebar = () => {
       </ul>
 
       <ul>
-        <SidebarItem texto={"Carrito (0)"} icono={"fa-solid fa-cart-shopping"} ruta={"/"}></SidebarItem>
+        <SidebarItem texto={`Carrito (${listaCarrito.length})`} icono={"fa-solid fa-cart-shopping"} ruta={"/carrito"}></SidebarItem>
         <SidebarItem texto={"Contacto"} icono={"fa-solid fa-comment"} ruta={"/"}></SidebarItem>
       </ul>
     </div>

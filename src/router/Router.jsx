@@ -1,36 +1,45 @@
 import { Route, Routes, Navigate } from "react-router-dom";
+import { useEffect, useState, React, useContext } from "react";
 
 import Home from "../pages/home/home";
 import Juegos from "../pages/juegos/juegos";
 import Apps from "../pages/apps/apps";
-import { useEffect, useState, React } from "react";
-import { API_Endpoints, API_Verbos, consultaApi } from "../services/ApiService";
 import ItemDetalles from "../components/itemDetalles/itemDetalles";
+import {Loader} from "../components/loader/loader";
+import { faL } from "@fortawesome/free-solid-svg-icons";
+import { consultarFireBase } from "../services/ApiService";
+import { ListaContext, ListaProvider } from "../context/ListaContext";
+import Carrito from "../pages/carrito/carrito";
+
+
 
 export const Router = () => {
-
-  const [listaApps, setListaApps] = useState([]);
-
-  useEffect(() => {
-    consultaApi(API_Endpoints.APPS, API_Verbos.GET).then((arr) => {
-      setListaApps(arr.data);
-    });
-  }, []);
+  
+  const { cargando } = useContext(ListaContext);
 
 
 
-  return (
-    <div className="vistaPrincipal pb-5">
-      <Routes>
-        <Route path="/" element={<Navigate to={"/home"} />} />
-        {/* <Route path="*" element={<Navigate to={"/home"} />} /> */}
-        <Route path="/home" element={<Home listaApps={listaApps.filter(item => item.principal === true)} />} />
-        <Route path="/home/:id" element={<Navigate to={"/apps"}/>} />
-        <Route path="/juegos" element={<Juegos listaApps={listaApps.filter(item => item.tipo === "juego")}  />} />
-        <Route path="/juego/:id" element={<ItemDetalles listaApps={listaApps} />} />
-        <Route path="/apps" element={<Apps listaApps={listaApps.filter(item => item.tipo === "app")} />}  />
-        <Route path="/app/:id" element={<ItemDetalles listaApps={listaApps}/>}  />
-      </Routes>
-    </div>
-  );
+
+  
+
+  if (cargando) {
+    return (
+        <Loader></Loader>
+    );
+  } else {
+    return (
+        <div className="vistaPrincipal pb-5">
+          <Routes>
+            <Route path="/" element={<Navigate to={"/home"} />} />
+            <Route path="/home" element={<Home />}/>
+            <Route path="/home/:id" element={<Navigate to={"/apps"} />} />
+            <Route path="/juegos" element={<Juegos />}/>
+            <Route path="/carrito" element={<Carrito />}/>
+            <Route path="/juego/:id" element={<ItemDetalles  />}/>
+            <Route path="/apps" element={<Apps />}/>
+            <Route path="/app/:id" element={<ItemDetalles  />}/>
+          </Routes>
+        </div>
+    );
+  }
 };

@@ -1,0 +1,21 @@
+.itemCarrito{
+    background-color: rgba(0, 0, 0, 0.502);
+    border-radius: 15px;
+    padding: 10px ;
+}
+
+.container-carrito{
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.borrarItem{
+    transition: all .3s ease;
+    color: rgb(255, 0, 0);
+    
+}
+
+.borrarItem:hover{
+    color: rgb(255, 255, 255);
+}
+

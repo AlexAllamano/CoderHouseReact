@@ -1,12 +1,6 @@
 import "./itemList.css";
 import ItemCard from "../itemCard/itemCard";
-import { React, useState, useEffect } from "react";
-import {
-  API_Endpoints,
-  API_Verbos,
-  consultaApi,
-} from "../../services/ApiService";
-
+import { React } from "react";
 const ItemList = ({ listaApps, titulo }) => {
   return (
     <div className="colorClaro mb-4">

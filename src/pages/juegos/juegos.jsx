@@ -1,9 +1,11 @@
 import ItemList from "../../components/itemList/itemList";
-import { React } from "react";
+import { React, useContext } from "react";
+import { ListaContext } from "../../context/ListaContext";
 
-const Juegos = ({listaApps, titulo}) => {
+const Juegos = () => {
   
-
+  // listaApps={listaApps.filter((item) => item.tipo === "juego")}
+  const { listaApps } = useContext(ListaContext);
 
   return (
     <>
@@ -11,7 +13,7 @@ const Juegos = ({listaApps, titulo}) => {
         <h2 >Todos los juegos</h2>
       </div>
 
-      <ItemList listaApps={listaApps} titulo={titulo}/>
+      <ItemList listaApps={listaApps.filter((item) => item.tipo === "juego")} />
     </>
   );
 };

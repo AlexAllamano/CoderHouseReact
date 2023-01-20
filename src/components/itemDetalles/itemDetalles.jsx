@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./itemDetalles.css";
 import { useNavigate, useParams } from "react-router-dom";
 import ItemList from "../itemList/itemList";
+import { ListaContext } from "../../context/ListaContext";
 
-const ItemDetalles = ({ listaApps }) => {
+const ItemDetalles = () => {
+
+  const { listaApps, listaCarrito, setlistaCarrito, agregarItem } = useContext(ListaContext);
+
   const { id: rutaId } = useParams();
 
   const {
@@ -18,6 +22,7 @@ const ItemDetalles = ({ listaApps }) => {
   } = listaApps.filter((item) => item.id == rutaId)[0];
 
   const navigate = useNavigate();
+  
   return (
     <>
       <div className="vh-total row ms-3 me-2">
@@ -25,14 +30,14 @@ const ItemDetalles = ({ listaApps }) => {
 
         <div className="h-100 d-flex flex-column justify-content-around align-items-center">
 
-          <img src={imagen} alt="" height={150}  className="rounded"/>
+          <img src={imagen} alt="" height={150} className="rounded"/>
           <div className="text-center">
           <h2>{nombre}</h2>
           <b className="valoracion m-0">
             {valoracion}/100 
           </b><i className="fa-solid fa-star text-warning valoracion ms-1"></i>
           </div>
-          <label className="btn btn-light d-block">Agregar al carrito</label>
+          <label className="btn btn-light d-block" onClick={() => agregarItem(rutaId)}>Agregar al carrito</label>
           
           <h5 className="categoriaDetalle">{categoria}</h5>
           
